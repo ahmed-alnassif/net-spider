@@ -3,7 +3,7 @@ This tool pulls the source code of the <b>html</b> page and the content inside i
 Also analyze what's inside <b>css</b> files and pull out external links. <br/>
 This tool is designed to help you learn and develop quickly by understanding the code written by large companies This tool only pulls <b>Front-End</b> codes
 <center>
-<img src="static/img.jpeg" alt="Net-Spider"/>
+<img src="https://raw.githubusercontent.com/ahmed-alnassif/net-spider/main/static/img.jpeg" alt="Net-Spider"/>
 </center>
 
 # Installation
@@ -67,8 +67,8 @@ Settings requests:
 # Screenshots
 <center>
 <pre>
-<img width="90%" src="static/Screenshot.png" alt="screenshot tool net-spider"/>
-<img width="90%" src="static/Screenshot_2.png" alt="screenshot tool net-spider"/>
-<img width="90%" src="static/Screenshot_3.png" alt="net-spider Facebook login"/>
+<img width="90%" src="https://raw.githubusercontent.com/ahmed-alnassif/net-spider/main/static/Screenshot.png" alt="screenshot tool net-spider"/>
+<img width="90%" src="https://raw.githubusercontent.com/ahmed-alnassif/net-spider/main/static/Screenshot_2.png" alt="screenshot tool net-spider"/>
+<img width="90%" src="https://raw.githubusercontent.com/ahmed-alnassif/net-spider/main/static/Screenshot_3.png" alt="net-spider Facebook login"/>
 </pre>
 </center>
