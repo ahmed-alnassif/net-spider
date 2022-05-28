@@ -65,10 +65,10 @@ class NetSpider_Update(args):
 		x=github.split('/')[-1]
 		path=os.path.join(folder, x)
 		if not os.path.exists(x):
-			cmd(f"rm -f -r {folder}").readline()
+			cmd(f"rm -f -r ../{folder}").readline()
 			return False
 		if not len(os.listdir(x)) > 0:
-			cmd(f"rm -f -r {folder}").readline()
+			cmd(f"rm -f -r ../{folder}").readline()
 			return False
 		os.chdir('..')
 		cmd(f"mv -f {path}/* .").readline()
@@ -88,7 +88,7 @@ class NetSpider_Update(args):
 			else:
 				return False
 		else:
-			x=r.text.strip()
+			x=console.Version(read=r.text.strip())
 			if x==version:
 				console.Log("You are using the latest version")
 				return False

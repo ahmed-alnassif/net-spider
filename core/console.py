@@ -58,7 +58,7 @@ class Console(object):
 	def Clear(self):
 		self.Println(f"{hhh}{ddd}{fff}", end='')
 	
-	def Version(self):
+	def Version(self, read=None):
 		default="version: 22.5.27"
 		file="core/etc/version.txt"
 		try:
@@ -66,7 +66,9 @@ class Console(object):
 			assert len(data) > 0
 		except Exception:
 			open(file, 'w').write(default)
-			data=default
+			data=defaul
+		if read:
+			data=read
 		return data.split(':')[-1].strip()
 	
 	def Banner(self):
