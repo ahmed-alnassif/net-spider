@@ -18,5 +18,5 @@ setup(
     download_url="https://github.com/ahmed-alnassif/net-spider",
     keywords=["get source page", "html", "css", "javascript", "front-end", "net-spider"],
     license="MIT",
-    install_requires=["requests", "bs4"],
+    install_requires=["requests", "bs4", "fake-useragent"],
 )
