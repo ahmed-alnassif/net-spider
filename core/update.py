@@ -3,7 +3,7 @@ r"""
 This project created by Ahmed Al-Nassif hoping to help you learn and understand how mega sites work and the way they write code, I don't take responsibility for doing illegal things like: stealing website ownership or tricking people into stealing their information... I designed this project to save you time and effort for learning and development, and you have the right to modify it to suit your needs
 Github: https://github.com/ahmed-alnassif
 E-mail: Mr.Ahmed.Nassif@gmail.com
-Facebook: https://fb.me/100049582051187
+Facebook: https://fb.me/ahm3d.nassif
 """
 
 from core.stop import check
@@ -61,7 +61,7 @@ class NetSpider_Update(args):
 		if not os.path.exists(folder):
 			os.mkdir(folder)
 		os.chdir(folder)
-		os.system(f"git clone {github}")
+		os.system(f"git clone --depth=1 {github}")
 		x=github.split('/')[-1]
 		path=os.path.join(folder, x)
 		if not os.path.exists(x):
@@ -125,11 +125,11 @@ class NetSpider_Update(args):
 			json=loads(r.read())
 			self.github=json["github"]
 			self.url=json["version"]
-		reslut=self.check()
-		if not reslut:
+		result=self.check()
+		if not result:
 			exit(0)
-		reslut=self.git_clone()
-		if not reslut:
+		result=self.git_clone()
+		if not result:
 			console.Error("Failed installation")
 			exit(0)
 		self.setup()

@@ -3,14 +3,13 @@ r"""
 This project created by Ahmed Al-Nassif hoping to help you learn and understand how mega sites work and the way they write code, I don't take responsibility for doing illegal things like: stealing website ownership or tricking people into stealing their information... I designed this project to save you time and effort for learning and development, and you have the right to modify it to suit your needs
 Github: https://github.com/ahmed-alnassif
 E-mail: Mr.Ahmed.Nassif@gmail.com
-Facebook: https://fb.me/100049582051187
+Facebook: https://fb.me/ahm3d.nassif
 """
 
 from core.stop import check
 check(__name__)
 
 from core.request import (
-User_Agent,
 Request_settings,
 ErrRequest,
 )
@@ -119,6 +118,7 @@ class spider_parser(object):
 	def css(self, data, url):
 		#if not hasattr(self, "re"):
 			#self.re=__import__("re")
+		self.saveFile()
 		name=self.name
 		#re=self.re
 		paths=list()
@@ -251,9 +251,9 @@ class spider_parser(object):
 					raise
 					exit(0)
 				elif inp in ['H', 'Help']:
-					console.Log('[1] Enter T || Try for try agent')
-					console.Log('[2] Enter Y || Yes for pass')
-					console.Log('[3] Enter N || No for stop in error')
+					console.Log('[1] Enter T || Try -> for try agent')
+					console.Log('[2] Enter Y || Yes -> for pass')
+					console.Log('[3] Enter N || No -> for stop in error')
 				else:
 					console.Error('Invalid option')
 			proggress.run()
@@ -261,7 +261,7 @@ class spider_parser(object):
 	def request(self):
 		links=self.links
 		items=self.items
-		console.Info('Download files: js, css, images, fonts, ...')
+		console.Info('Downloading files: js, css, images, fonts, ...')
 		#assert len(array[0])==len(array[1])
 		self.length_c+=len(links)
 		for link, file in zip(links.values(), items.values()):
@@ -280,7 +280,7 @@ class spider_parser(object):
 				os.remove(folder)
 			os.mkdir(folder)
 		name=str()
-		if hasattr(self, "name"):
+		if hasattr(self, "name") and bool(self.name):
 			name=self.name
 		else:
 			count=len(os.listdir(folder))
@@ -351,7 +351,7 @@ class spider_parser(object):
 		if hide_bar:
 			proggress.display()
 		if url and not raw:
-			console.Info('Download the page')
+			console.Info('Downloading the page')
 			try:
 				r=Request.get(url)
 			except ErrRequest as e:
@@ -359,7 +359,7 @@ class spider_parser(object):
 				raise
 			else:
 				if not (r.status_code > 199 and r.status_code < 300):
-					status="request status <%s>"%r.status_code
+					status="Request status code <%s>"%r.status_code
 					console.Error(status)
 					raise ErrRequest(status)
 				else:
@@ -381,10 +381,13 @@ class spider_parser(object):
 		self.request()
 		proggress.stop()
 		end=round(time.time()-start, ndigits=1)
-		console.Info("Program finished in: %ss ..."%end)
-		console.Info(f"Files saved in: {green}{self.name}")
+		console.Info("Program have finished in: %ss ..."%end)
+		console.Info(f"The files saved in: {green}{self.name}")
 		console.Info(f"Count files: {cyan}{proggress.num_one}")
-		console.Info("Thank you for use Net-Spider :)")
+		console.Info("Thank you for using Net-Spider!")
+	
+	def __repr__(self):
+		return "Target<[%s]>"%self.url
 	
 	def __str__(self):
 		return "Target<[%s]>"%self.url

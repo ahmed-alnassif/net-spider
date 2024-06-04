@@ -3,7 +3,7 @@ r"""
 This project created by Ahmed Al-Nassif hoping to help you learn and understand how mega sites work and the way they write code, I don't take responsibility for doing illegal things like: stealing website ownership or tricking people into stealing their information... I designed this project to save you time and effort for learning and development, and you have the right to modify it to suit your needs
 Github: https://github.com/ahmed-alnassif
 E-mail: Mr.Ahmed.Nassif@gmail.com
-Facebook: https://fb.me/100049582051187
+Facebook: https://fb.me/ahm3d.nassif
 """
 
 from core.stop import check
@@ -19,8 +19,9 @@ yllow="\033[33m"
 green="\033[32m"
 red="\033[31m"
 black="\033[30m"
-blod="\033[1m"
+bold="\033[1m"
 none="\033[0m"
+underline="\033[4m"
 bbb="#8700C2"
 fff="\033[3J"
 ddd="\033[2J"
@@ -36,21 +37,21 @@ class Console(object):
 	
 	def Log(self, text, input=None, **kwargs):
 		t=self.Time(blue)
-		main=f"{t} {blod}{white}[{blue}LOG{white}]{none}{white} {text}{none}"
+		main=f"{t}{bold}{white}[{blue}LOG{white}]{none}{white} {text}{none}"
 		if input:
 			return main
 		self.Println(main, **kwargs)
 	
 	def Info(self, text, input=None, **kwargs):
 		t=self.Time(green)
-		main=f"{t} {blod}{white}[{green}INFO{white}]{none}{white} {text}{none}"
+		main=f"{t}{bold}{white}[{green}INFO{white}]{none}{white} {text}{none}"
 		if input:
 			return main
 		self.Println(main, **kwargs)
 	
 	def Error(self, text, input=None, **kwargs):
 		t=self.Time(red)
-		main=f"{t} {blod}{white}[{red}ERROR{white}]{none}{white} {text}{none}"
+		main=f"{t}{bold}{white}[{red}ERROR{white}]{none}{white} {text}{none}"
 		if input:
 			return main
 		self.Println(main, **kwargs)
@@ -59,14 +60,14 @@ class Console(object):
 		self.Println(f"{hhh}{ddd}{fff}", end='')
 	
 	def Version(self, read=None):
-		default="version: 22.5.27"
+		default="version: 24.6.4"
 		file="core/etc/version.txt"
 		try:
 			data=open(file).read().strip()
 			assert len(data) > 0
 		except Exception:
 			open(file, 'w').write(default)
-			data=defaul
+			data=default
 		if read:
 			data=read
 		return data.split(':')[-1].strip()
@@ -83,11 +84,11 @@ class Console(object):
 		
 		with open(logo, 'r') as r:
 			R=r.read()
-			self.Println("{}{}Created By: {}{}Ahmed Al-Nassif{}".format(R, white, blod, green, none))
-			self.Println("{}{}Github: {}https://github.com/ahmed-alnassif{}".format(blod, black, white, none))
-			self.Println("{}{}E-mail: {}Mr.Ahmed.Nassif@gmail.com{}".format(blod, white, pink, none))
-			self.Println("{}{}Facebook: {}https://fb.me/100049582051187{}".format(blod, blue, white, none))
-			self.Println("{}{}Porgram version{}: {}{}{}".format(blod, red, white, yllow, version, none))
+			self.Println("{}{}Created By: {}{}Ahmed Al-Nassif{}".format(R, white, bold, green, none))
+			self.Println("{}{}Github: {}{}https://github.com/ahmed-alnassif{}".format(bold, cyan, white, underline, none))
+			self.Println("{}{}E-mail: {}Mr.Ahmed.Nassif@gmail.com{}".format(bold, white, pink, none))
+			self.Println("{}{}Facebook: {}{}https://fb.me/ahm3d.nassif{}".format(bold, blue, white, underline, none))
+			self.Println("{}{}Program version{}: {}{}{}".format(bold, red, white, yllow, version, none))
 			print()
 			del R
 	
@@ -96,6 +97,8 @@ class Console(object):
 		pass
 	
 	def __str__(self):
+		return "Working"
+	def __repr__(self):
 		return "Working"
 
 class Proggress(object):
@@ -140,7 +143,7 @@ class Proggress(object):
 			bar_str=x*bar+s*bar_space
 			#print
 			Time=self.console.Time(mm)
-			self.stdout(Time, s, blod, white, '[', m, 'BAR', white, ']', m, ':', s, white, total_h_str, s, mm, f, bar_str, f, s, m, total_str, none, '\r')
+			self.stdout(Time, bold, white, '[', m, '~', white, ']', m, ':', s, white, total_h_str, s, mm, f, bar_str, f, s, m, total_str, none, '\r')
 			#time.sleep(0.4)
 		else:
 			self.stop()
@@ -183,6 +186,9 @@ class Proggress(object):
 		self.thread=__import__("threading").Thread
 		#self.sys=__import__("sys")
 		self.console=console
+	
+	def __repr__(self):
+		return "<[working]>"
 	
 	def __str__(self):
 		return "<[working]>"
