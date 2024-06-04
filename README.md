@@ -24,8 +24,8 @@ sudo apt install git python python-pip -y
 
 # Termux (Android):
 ```bash
-sudo apt update
-sudo apt install git python -y
+apt update
+apt install git python -y
 ```
 
 Installation
