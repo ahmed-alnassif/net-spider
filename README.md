@@ -42,6 +42,8 @@ python setup.py install
 Run
 ```bash
 python main.py -u [url]
+# Example
+python main.py -u https://example.com
 ```
 
 # Usage
@@ -87,8 +89,8 @@ Requests settings:
 # Screenshots
 <div align="center">
 <img width="90%" src="https://raw.githubusercontent.com/ahmed-alnassif/net-spider/main/static/Screenshot.png" alt="screenshot tool net-spider"/>
-</br>
+<br/>
 <img width="90%" src="https://raw.githubusercontent.com/ahmed-alnassif/net-spider/main/static/Screenshot_2.png" alt="screenshot tool net-spider"/>
-</br>
+<br/>
 <img width="90%" src="https://raw.githubusercontent.com/ahmed-alnassif/net-spider/main/static/Screenshot_3.png" alt="net-spider WhatsApp"/>
 </div>
